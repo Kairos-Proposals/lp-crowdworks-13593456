@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos 提案書 | パーソナルジム新規HP制作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F2EC;
+    --forest: #2B3A33;
+    --sage: #8FA093;
+    --rose: #C99B9B;
+    --ink: #1E1E1C;
+    --white: #FFFFFF;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.85;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  h1,h2,h3,h4{
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    color: var(--forest);
+    letter-spacing: 0.04em;
+  }
+  .en{
+    font-family: 'Cormorant Garamond', serif;
+  }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section{ position: relative; }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(201,155,155,0.35), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(143,160,147,0.4), transparent 50%),
+      linear-gradient(160deg, #F5F2EC 0%, #EDEAE2 60%, #E7E2D6 100%);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-120px; right:-120px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(43,58,51,0.15);
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-180px; left:-100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(43,58,51,0.1);
+  }
+  .hero-ring{
+    position:absolute;
+    top: 50%; right: 8%;
+    transform: translateY(-50%);
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 18px solid rgba(143,160,147,0.25);
+    border-top-color: rgba(201,155,155,0.55);
+    display:none;
+  }
+  .hero-inner{
+    position: relative;
+    z-index: 2;
+    padding: 140px 0 100px;
+  }
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--forest);
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(43,58,51,0.2);
+    padding: 7px 18px;
+    border-radius: 999px;
+    margin-bottom: 36px;
+  }
+  .kicker::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background: var(--rose);
+  }
+  .hero h1{
+    font-size: clamp(32px, 5.4vw, 58px);
+    font-weight: 900;
+    line-height: 1.5;
+    max-width: 820px;
+  }
+  .hero h1 span{
+    color: var(--rose);
+  }
+  .hero p.lead{
+    margin-top: 28px;
+    max-width: 560px;
+    font-size: 16px;
+    color: #4b4b47;
+  }
+  .hero-foot{
+    margin-top: 56px;
+    display:flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-foot div{
+    font-size: 13px;
+    color: #6b6b65;
+  }
+  .hero-foot div strong{
+    display:block;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 15px;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+
+  /* ===== SECTION COMMON ===== */
+  .section{
+    padding: 110px 0;
+  }
+  .section-head{
+    margin-bottom: 64px;
+    text-align: center;
+  }
+  .section-head .en-label{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    color: var(--rose);
+    display:block;
+    margin-bottom: 12px;
+  }
+  .section-head h2{
+    font-size: clamp(24px, 3.4vw, 34px);
+    font-weight: 700;
+  }
+  .section-head p{
+    margin-top: 16px;
+    color: #5c5c57;
+    font-size: 15px;
+    max-width: 620px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{
+    background: var(--forest);
+    color: #EDEAE2;
+  }
+  .understand .section-head h2{ color: #fff; }
+  .understand .section-head p{ color: #C9D1C9; }
+  .understand-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .u-card{
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 4px;
+    padding: 32px 30px;
+  }
+  .u-card .num{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--rose);
+    margin-bottom: 14px;
+    display:block;
+  }
+  .u-card h3{
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .u-card p{
+    font-size: 14px;
+    color: #C9D1C9;
+  }
+  .u-quote{
+    margin-top: 56px;
+    text-align:center;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: clamp(18px, 2.4vw, 24px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 2;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 44px;
+  }
+  .u-quote span{ color: var(--rose); }
+
+  /* ===== VALUE ===== */
+  .value-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .v-card{
+    background: var(--white);
+    border-radius: 6px;
+    padding: 40px 28px;
+    border: 1px solid #E6E1D5;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .v-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 16px 34px rgba(43,58,51,0.1);
+  }
+  .v-card .mark{
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage), var(--forest));
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .v-card .mark::after{
+    content:"";
+    position:absolute;
+    inset: 13px;
+    background: var(--white);
+    border-radius: 50%;
+  }
+  .v-card h3{
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+  .v-card p{
+    font-size: 14px;
+    color: #5c5c57;
+  }
+  .v-card.wide{
+    grid-column: span 1;
+  }
+  .value-grid.five{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .value-grid.five .v-card:nth-child(4),
+  .value-grid.five .v-card:nth-child(5){
+    grid-column: span 1;
+  }
+
+  /* ===== FLOW ===== */
+  .flow{
+    background: #EFEBE1;
+  }
+  .flow-list{
+    display:flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-item{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 30px 0;
+    border-bottom: 1px solid #D9D3C3;
+  }
+  .flow-item:last-child{ border-bottom:none; }
+  .flow-item .step{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: var(--rose);
+    line-height: 1;
+  }
+  .flow-item h3{
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .flow-item p{
+    font-size: 14px;
+    color: #5c5c57;
+  }
+  .flow-item .when{
+    display:inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--forest);
+    background: rgba(143,160,147,0.25);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background: linear-gradient(160deg, var(--forest) 0%, #22302A 100%);
+    color: #fff;
+    text-align: center;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing::before{
+    content:"";
+    position:absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+    top: -300px; left: 50%;
+    transform: translateX(-50%);
+  }
+  .closing h2{
+    color: #fff;
+    font-size: clamp(24px, 3.6vw, 36px);
+    position: relative;
+    z-index: 2;
+  }
+  .closing p{
+    margin-top: 20px;
+    color: #C9D1C9;
+    max-width: 540px;
+    margin-left:auto; margin-right:auto;
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+  }
+  .cta-btn{
+    display:inline-block;
+    margin-top: 44px;
+    background: var(--rose);
+    color: #2B3A33;
+    font-weight: 700;
+    padding: 18px 48px;
+    border-radius: 999px;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 2;
+    transition: transform .2s ease;
+  }
+  .cta-btn:hover{ transform: translateY(-3px); }
+  .closing-foot{
+    margin-top: 50px;
+    font-size: 12px;
+    color: #9AA79D;
+    position: relative;
+    z-index: 2;
+    letter-spacing: 0.1em;
+  }
+
+  footer{
+    background: #1E1E1C;
+    color: #807F79;
+    text-align: center;
+    padding: 28px 0;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 860px){
+    .understand-grid{ grid-template-columns: 1fr; }
+    .value-grid, .value-grid.five{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px){
+    .hero-inner{ padding: 120px 0 80px; }
+    .value-grid, .value-grid.five{ grid-template-columns: 1fr; }
+    .flow-item{ grid-template-columns: 56px 1fr; }
+    .flow-item .step{ font-size: 30px; }
+    .hero-foot{ gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-ring"></div>
+  <div class="wrap hero-inner">
+    <span class="kicker">PROPOSAL FROM KAIROS — ヤマザキ様 新規パーソナルジムHP制作</span>
+    <h1>はじめの一歩が、<br>いちばん怖い。<br>だから、<span>安心</span>から設計する。</h1>
+    <p class="lead">
+      筋トレ経験ゼロの方でも「ここなら通えそう」と思える。
+      そんな第一印象を、HPというたった一枚の入口でつくります。
+      Kairosより、貴ジムのオープンに向けたご提案です。
+    </p>
+    <div class="hero-foot">
+      <div><strong>ご予算</strong>200,000円〜250,000円</div>
+      <div><strong>ご希望納期</strong>契約から1〜1.5ヶ月</div>
+      <div><strong>ゴール</strong>体験トレーニング予約の獲得</div>
+    </div>
+  </div>
+</section>
+
+<section class="understand">
+  <div class="wrap section">
+    <div class="section-head">
+      <span class="en-label">Understanding</span>
+      <h2>ご依頼内容から、私たちが読み取ったこと</h2>
+      <p>募集文を拝見し、単にページを並べるだけでなく「ジムの顔」として機能するサイトが必要だと理解しています。</p>
+    </div>
+    <div class="understand-grid">
+      <div class="u-card">
+        <span class="num">01</span>
+        <h3>ターゲットは、筋トレ初心者の30〜40代女性</h3>
+        <p>マッチョな世界観ではなく、清潔感・丁寧さ・距離の近さを伝えるトーンが鍵になります。威圧感のないデザインを重視します。</p>
+      </div>
+      <div class="u-card">
+        <span class="num">02</span>
+        <h3>新規オープン＝実績ゼロからのスタート</h3>
+        <p>お客様の声やトレーナーの人柄を丁寧に見せることで、「実績」の代わりに「信頼できそうな雰囲気」を作る必要があります。</p>
+      </div>
+      <div class="u-card">
+        <span class="num">03</span>
+        <h3>ゴールは閲覧数ではなく、体験予約という行動</h3>
+        <p>料金・アクセス・予約導線を迷わせない設計にし、問い合わせフォームまでの距離を最短にすることが成果に直結します。</p>
+      </div>
+      <div class="u-card">
+        <span class="num">04</span>
+        <h3>運用は初めて。更新は「自分たちで」できる必要がある</h3>
+        <p>お知らせの更新など、公開後もご自身で手を加えられる仕組みと、使い方の分かりやすさが安心材料になります。</p>
+      </div>
+    </div>
+    <p class="u-quote">「作って終わり」ではなく、<span>オープン後も一緒に育てていくサイト</span>を目指します。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="en-label">Our Value</span>
+      <h2>Kairosがご提供できること</h2>
+      <p>ホームページ制作が初めてでも迷わないよう、構成の企画段階から伴走します。</p>
+    </div>
+    <div class="value-grid five">
+      <div class="v-card">
+        <div class="mark"></div>
+        <h3>予約導線を軸にした構成設計</h3>
+        <p>トップページ・コンセプト・料金・トレーナー紹介・お客様の声・アクセス。すべてのページから「体験予約」へ自然に誘導する導線を設計します。</p>
+      </div>
+      <div class="v-card">
+        <div class="mark"></div>
+        <h3>清潔感×安心感のビジュアル設計</h3>
+        <p>準備中の店舗写真・ロゴを活かし、初めての方でも緊張せず問い合わせできる、やわらかく信頼感のあるデザインに仕上げます。</p>
+      </div>
+      <div class="v-card">
+        <div class="mark"></div>
+        <h3>スマホ最適化・軽量設計</h3>
+        <p>検討の多くはスマートフォンから。片手で読みやすい文字サイズ・タップしやすいボタン配置まで細部にこだわります。</p>
+      </div>
+      <div class="v-card">
+        <div class="mark"></div>
+        <h3>基本SEO＋ご自身で更新できる仕組み</h3>
+        <p>タイトル・meta設計などの基本SEOに加え、お知らせ更新などはWordPressやSTUDIOのCMS機能でご自身で運用できるようにします。</p>
+      </div>
+      <div class="v-card">
+        <div class="mark"></div>
+        <h3>丁寧なコミュニケーション</h3>
+        <p>専門用語を使わず、進捗や選択肢をその都度分かりやすくご説明。初めての制作でも安心して進められる体制を整えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap section">
+    <div class="section-head">
+      <span class="en-label">Flow &amp; Schedule</span>
+      <h2>進め方とスケジュールイメージ</h2>
+      <p>ご希望の「契約から1〜1.5ヶ月」での公開を前提に、無理のない進行スケジュールをご提案します。</p>
+    </div>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="step en">01</div>
+        <div>
+          <h3>ヒアリング・ご提案</h3>
+          <p>ジムのコンセプト、強み、ターゲットのお悩みを伺い、サイト構成案とツール（STUDIO／WordPress）をご提案します。</p>
+          <span class="when">目安：契約後 1週目</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step en">02</div>
+        <div>
+          <h3>デザイン制作</h3>
+          <p>トップページのデザイン案を先に確定し、トーン＆マナーをすり合わせてから全ページへ展開します。</p>
+          <span class="when">目安：2〜3週目</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step en">03</div>
+        <div>
+          <h3>コーディング・実装</h3>
+          <p>写真・ロゴが届き次第、各ページへ反映。お問い合わせ／体験予約フォームの実装とテストを行います。</p>
+          <span class="when">目安：3〜4週目</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step en">04</div>
+        <div>
+          <h3>確認・修正</h3>
+          <p>実機（スマホ・PC）での表示確認、文言の最終調整を行い、公開前の仕上げを行います。</p>
+          <span class="when">目安：5週目</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step en">05</div>
+        <div>
+          <h3>公開・運用レクチャー</h3>
+          <p>サイト公開後、お知らせ更新など日々の運用方法を分かりやすくご案内し、安心してお引き渡しします。</p>
+          <span class="when">目安：6週目</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>オープンという大切な一歩を、<br>一緒に形にさせてください。</h2>
+    <p>ご不明な点やご予算に応じた制作範囲のご相談も歓迎です。<br>まずはお気軽にメッセージをお送りください。</p>
+    <a href="#" class="cta-btn">Kairosに相談してみる</a>
+    <div class="closing-foot">KAIROS — WEB制作・システム開発チーム</div>
+  </div>
+</section>
+
+<footer>
+  © Kairos. Proposal for ヤマザキ PA 様
+</footer>
+
+</body>
+</html>
